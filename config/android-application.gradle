@@ -1,0 +1,78 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
+android {
+
+    buildToolsVersion versions.android.buildTools
+    compileSdkVersion versions.android.compileSdk
+
+    buildTypes {
+
+        Properties properties = new Properties()
+        if (project.rootProject.file("local.properties").canRead()) {
+            properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        }
+
+        debug {
+            // These two variables are set in the non under version control "local.properties" file.
+            // Please provide your own keys or ask the developer
+            buildConfigField "String", "API_KEY", properties.getProperty("API_KEY", null)
+            manifestPlaceholders = [MAPS_API_KEY: properties.getProperty("MAPS_API_KEY", null)]
+            
+            debuggable true
+            testCoverageEnabled false
+        }
+
+        release {
+            // These two variables are set in the non under version control "local.properties" file.
+            // Please provide your own keys or ask the developer
+            buildConfigField "String", "API_KEY", properties.getProperty("API_KEY", null)
+            manifestPlaceholders = [MAPS_API_KEY: properties.getProperty("MAPS_API_KEY", null)]
+
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt")
+            proguardFiles "proguard-android.pro"
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        // Used to run UI tests mocking the domain part
+        mock {
+        }
+        // Normal flavor
+        normal {
+        }
+    }
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.marcohc.tier.sample"
+        targetSdkVersion versions.android.targetSdk
+        minSdkVersion versions.android.minSdk
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled false
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "com.marcohc.terminator.core.mvi.android.test.RxTestRunner"
+    }
+
+    testOptions {
+        animationsDisabled = true
+        execution "ANDROIDX_TEST_ORCHESTRATOR"
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
+        androidTest.java.srcDirs += "src/androidTest/kotlin"
+    }
+}

@@ -1,0 +1,7 @@
+include ":app"
+
+include ":feature-map"
+include ":feature-detail"
+
+include ":shared-resources"
+include ":shared-data"

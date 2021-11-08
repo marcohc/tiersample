@@ -1,0 +1,35 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+android {
+
+    buildToolsVersion versions.android.buildTools
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileSdkVersion versions.android.compileSdk
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        targetSdkVersion versions.android.targetSdk
+        minSdkVersion versions.android.minSdk
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
+        androidTest.java.srcDirs += "src/androidTest/kotlin"
+    }
+}
+
+dependencies {
+    implementation libraries.kotlin
+}

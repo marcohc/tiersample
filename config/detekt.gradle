@@ -1,0 +1,16 @@
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    // Applies the config files on top of detekt's default config file. `false` by default.
+    buildUponDefaultConfig = true
+
+    // Define the detekt configuration(s) you want to use.
+    // Defaults to the default detekt configuration.
+    config = files("$rootDir/config/detekt-config.yml")
+
+
+    parallel = true
+    source = files(projectDir)
+    toolVersion = versions.detekt
+
+}

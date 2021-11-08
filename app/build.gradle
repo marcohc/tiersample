@@ -1,0 +1,22 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
+apply from: "../config/android-application.gradle"
+
+dependencies {
+
+    androidTestImplementation libraries.espressoBarista
+    androidTestImplementation libraries.terminator.mviAndroidTest
+
+    implementation libraries.terminator.koin
+    implementation libraries.terminator.mvi
+    implementation libraries.threeTenAbp.core
+    implementation libraries.timber
+
+    implementation project(":feature-map")
+    implementation project(":feature-detail")
+
+    implementation project(":shared-data")
+    implementation project(":shared-resources")
+
+}

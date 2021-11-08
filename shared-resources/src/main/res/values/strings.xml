@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tier Sample</string>
+    <string name="map_tap_to_fetch">Tap to fetch data again</string>
+    <string name="permission_manager_settings">Settings</string>
+    <string name="rationale_message">We need permission to access your location to display where you are and the vehicles around</string>
+    <string name="rationale_title">Sorry to bother…</string>
+    <string name="widget_general_error">Houston, we have a problem!</string>
+    <string name="widget_ok">@android:string/ok</string>
+</resources>

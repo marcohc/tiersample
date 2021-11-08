@@ -1,0 +1,54 @@
+ext.versions = [
+        android   : [
+                minSdk    : 23,
+                compileSdk: 30,
+                targetSdk : 30,
+                buildTools: "30.0.2"
+        ],
+        detekt    : "1.19.0-RC1",
+        espresso  : "3.2.0",
+        glide     : "4.9.0",
+        koin      : "2.1.6",
+        kotlin    : "1.5.31",
+        retrofit  : "2.6.2",
+        terminator: "3.0.1",
+]
+
+ext.gradlePlugins = [
+        detekt            : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt",
+        googlePlayServices: "com.google.gms:google-services:4.3.5",
+        gradle            : "com.android.tools.build:gradle:7.0.3",
+        kotlin            : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+]
+
+ext.libraries = [
+        androidJunit             : "androidx.test.ext:junit:1.1.1",
+        androidTestOrchestrator  : "androidx.test:orchestrator:1.2.0",
+        androidTestRunner        : "androidx.test:runner:1.2.0",
+        espressoBarista          : "com.adevinta.android:barista:4.2.0",
+        googlePlayServices       : [
+                map     : "com.google.android.gms:play-services-maps:18.0.0",
+                mapUtils: "com.google.maps.android:android-maps-utils:2.2.3",
+                location: "com.google.android.gms:play-services-location:18.0.0",
+        ],
+        gson                     : "com.google.code.gson:gson:2.8.5",
+        koptional                : "com.gojuno.koptional:koptional:1.7.0",
+        kotlin                   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
+        material                 : "com.google.android.material:material:1.3.0",
+        okhttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:4.2.1",
+        permissions              : "io.github.ParkSangGwon:tedpermission-rx2:3.3.0",
+        retrofitGsonAdapter      : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        retrofitRxAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        terminator               : [
+                koin   : "com.github.marcohc.terminator:core-koin:$versions.terminator",
+                mvi    : "com.github.marcohc.terminator:core-mvi:$versions.terminator",
+                mviAndroidTest: "com.github.marcohc.terminator:core-mvi-android-test:$versions.terminator",
+                mviTest: "com.github.marcohc.terminator:core-mvi-test:$versions.terminator",
+                utils  : "com.github.marcohc.terminator:core-utils:$versions.terminator",
+        ],
+        threeTenAbp              : [
+                core: "com.jakewharton.threetenabp:threetenabp:1.3.1",
+                test: "org.threeten:threetenbp:1.4.0",
+        ],
+        timber                   : "com.jakewharton.timber:timber:5.0.1",
+]

@@ -1,0 +1,15 @@
+apply from: "../config/android-library.gradle"
+
+dependencies {
+
+    implementation libraries.gson
+    implementation libraries.koptional
+    implementation libraries.okhttp3LoggingInterceptor
+    implementation libraries.retrofitRxAdapter
+    implementation libraries.terminator.koin
+    implementation libraries.threeTenAbp.core
+    implementation(libraries.retrofitGsonAdapter) { exclude group: "com.google.code.gson" }
+
+    testImplementation libraries.terminator.mviTest
+
+}

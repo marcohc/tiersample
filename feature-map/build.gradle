@@ -1,0 +1,22 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+apply from: "../config/android-library.gradle"
+
+dependencies {
+
+    implementation libraries.googlePlayServices.location
+    implementation libraries.googlePlayServices.map
+    implementation libraries.googlePlayServices.mapUtils
+    implementation libraries.koptional
+    implementation libraries.permissions
+    implementation libraries.terminator.koin
+    implementation libraries.terminator.mvi
+    implementation libraries.terminator.utils
+
+    implementation project(":shared-data")
+    implementation project(":shared-resources")
+
+    testImplementation libraries.terminator.mviTest
+
+}
